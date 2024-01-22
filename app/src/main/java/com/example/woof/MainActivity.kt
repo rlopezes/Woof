@@ -54,6 +54,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            //TEMA EN EL ARCHIVO Theme.kt
             WoofTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
@@ -72,11 +73,11 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun WoofApp() {
     Scaffold(
-        //Cabecera
+        //CABECERA
         topBar = {
             WoofTopAppBar()
         },
-        //Cuerpo
+        //CUERPO
         content = {
             LazyColumn(contentPadding = it) {
                 items(dogs) {
@@ -132,7 +133,8 @@ fun DogItem(
     modifier: Modifier = Modifier
 ) {
     Card(modifier = modifier
-        //.clip(MaterialTheme.shapes.medium) //Valor por defecto
+        //CLIP DOS ESQUINAS REDONDEADAS "MEDIDUM"
+        .clip(MaterialTheme.shapes.medium) //Valor por defecto
         ) {
         Row(
             modifier = Modifier
@@ -160,6 +162,7 @@ fun DogIcon(
         modifier = modifier
             .size(dimensionResource(R.dimen.image_size))
             .padding(dimensionResource(R.dimen.padding_small))
+            //CLIP CIRCULAR "SMALL"
             .clip(MaterialTheme.shapes.small),
         contentScale = ContentScale.Crop,
         painter = painterResource(dogIcon),
@@ -199,6 +202,7 @@ fun DogInformation(
 @Preview
 @Composable
 fun WoofLightPreview() {
+    //TEMA EN EL ARCHIVO Theme.kt
     WoofTheme(darkTheme = false) {
         WoofApp()
     }
@@ -207,6 +211,7 @@ fun WoofLightPreview() {
 @Preview
 @Composable
 fun WoofDarkThemePreview() {
+    //TEMA EN EL ARCHIVO Theme.kt
     WoofTheme(darkTheme = true) {
         WoofApp()
     }
